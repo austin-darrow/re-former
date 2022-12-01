@@ -15,13 +15,26 @@
 </form> %>
 
 
-<%# <%= form_tag("/users", :method => "post") do %> %>
-  <%# <%= label_tag("username") %> %>
-  <%# <%= text_field_tag("user[username]") %> %>
-  <%# <%= label_tag("email") %> %>
-  <%# <%= email_field_tag("user[email]") %> %>
-  <%# <%= label_tag("password") %> %>
-  <%# <%= password_field_tag("user[password]") %> %>
+<%# <%= form_tag("/users", :method => "post") do %>
+  <%# <%= label_tag("username") %>
+  <%# <%= text_field_tag("user[username]") %>
+  <%# <%= label_tag("email") %>
+  <%# <%= email_field_tag("user[email]") %>
+  <%# <%= label_tag("password") %>
+  <%# <%= password_field_tag("user[password]") %>
 
-  <%# <%= submit_tag() %> %>
-<%# <% end %> %>
+  <%# <%= submit_tag() %>
+<%# <% end %>
+
+<%= form_with model: @user do |form| %>
+  <%= form.label :username, value: "Your username goes here" %>
+  <%= form.text_field :username, value: "darrowboat" %>
+  <br>
+  <%= form.label :email %>
+  <%= form.email_field(:email, placeholder: "example@example.com") %>
+  <br>
+  <%= form.label :password %>
+  <%= form.password_field :password %>
+  <br>
+  <%= form.submit "Create!" %>
+<% end %>
